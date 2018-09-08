@@ -11,7 +11,7 @@
 # Author: Gaël Ecorchard
 # Version:
 # - 1.2, 2018-09-09
-      * update to fix not working on freecad 0.17
+#     * update to fix not working on freecad 0.17
 # - 1.1, 2014-10-31
 #     * correct import for Part
 # - 1.0, 2014-08, first release.
