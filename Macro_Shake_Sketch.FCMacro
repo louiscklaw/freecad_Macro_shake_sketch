@@ -39,6 +39,9 @@ g_geom_points = {
 }
 
 
+SHAKE_DONE = 'shake done'
+SHAKING_POINT = 'shaking point {}'
+
 class BoundingBox(object):
     xmin = None
     xmax = None
@@ -122,10 +125,12 @@ def move_points(sketch, geom_index, sigma):
     # however prevent repeated recompute.
     for point_index in point_indexes:
         point = sketch.getPoint(geom_index, point_index)
-
         add_noise(point, sigma)
+
+        print(SHAKING_POINT.format(point))
         sketch.movePoint(geom_index, point_index, point)
 
+    print(SHAKE_DONE)
 
 view_provider = Gui.activeDocument().getInEdit()
 
