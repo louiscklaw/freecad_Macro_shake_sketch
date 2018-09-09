@@ -35,10 +35,12 @@ g_geom_points = {
     Part.Line: [1, 2],  # first point, last point
     Part.Circle: [0, 3],  # curve, center
     Part.ArcOfCircle: [1, 2, 3],  # first point, last point, center
-    Part.LineSegment: [1, 2]
+    Part.LineSegment: [1, 2],
+    Part.Point: [1]
 }
 
 
+SHAKE_POINT_DONE = 'shake point done'
 SHAKE_DONE = 'shake done'
 SHAKING_POINT = 'shaking point {}'
 
@@ -130,7 +132,7 @@ def move_points(sketch, geom_index, sigma):
         print(SHAKING_POINT.format(point))
         sketch.movePoint(geom_index, point_index, point)
 
-    print(SHAKE_DONE)
+    print(SHAKE_POINT_DONE)
 
 view_provider = Gui.activeDocument().getInEdit()
 
@@ -150,3 +152,5 @@ if do_move:
 
     for i in range(len((sketch.Geometry))):
         move_points(sketch, i, sigma)
+
+    print(SHAKE_DONE)
